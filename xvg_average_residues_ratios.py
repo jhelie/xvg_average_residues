@@ -26,7 +26,7 @@ git: https://github.com/jhelie/xvg_average_residues
 This script calculate the average of residues ratios from residues densities contained
 in several xvg files.
 
-It calculates the avg and (unbiasd) std dev and can deal with NaN.
+It calculates the avg and (unbiased) std dev and can deal with NaN.
 
 The ratios are calculated for each supplied file, then averaged proportional to the weight
 of that file.
