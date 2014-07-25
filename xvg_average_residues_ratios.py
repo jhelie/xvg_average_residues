@@ -182,17 +182,16 @@ def load_xvg():															#DONE
 		data_residues_hphob[:,f_index] = tmp_data[:,3]
 		data_residues_total[:,f_index] = tmp_data[:,5]
 
-		#remove non meaningful zeros (i.e. not sampled)
-		data_residues_total[data_residues_total == 0] = np.nan
-		data_residues_basic[np.isnan(data_residues_total)] = np.nan
-		data_residues_hphob[np.isnan(data_residues_total)] = np.nan
+	#remove non meaningful zeros (i.e. not sampled)
+	data_residues_total[data_residues_total == 0] = np.nan
+	data_residues_basic[np.isnan(data_residues_total)] = np.nan
+	data_residues_hphob[np.isnan(data_residues_total)] = np.nan
 
-		#calculate ratios
-		tmp_div = np.zeros((nb_rows, 1))
-		tmp_div[:,0] = np.nansum(data_residues_basic + data_residues_hphob, axis = 1)
-		tmp_div[np.isnan(tmp_div)] = 1
-		data_ratios = data_residues_basic / tmp_div
-		
+	#calculate ratios
+	tmp_div = data_residues_basic + data_residues_hphob
+	tmp_div[np.isnan(tmp_div)] = 1
+	data_ratios = data_residues_hphob / tmp_div * 100
+			
 	return
 
 #=========================================================================================
