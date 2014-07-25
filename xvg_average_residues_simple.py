@@ -472,7 +472,7 @@ def write_xvg():														#DONE
 	output_xvg = open(filename_xvg, 'w')
 	
 	#general header
-	output_xvg.write("# [average xvg - written by xvg_average_op_simple v" + str(version_nb) + "]\n")
+	output_xvg.write("# [average xvg - written by xvg_average_residues_simple v" + str(version_nb) + "]\n")
 	tmp_files = ""
 	for f in args.xvgfilenames:
 		tmp_files += "," + str(f)
