@@ -15,11 +15,11 @@ import os.path
 version_nb = "0.0.1"
 parser = argparse.ArgumentParser(prog = 'xvg_average_residues_simple', usage='', add_help = False, formatter_class = argparse.RawDescriptionHelpFormatter, description =\
 '''
-**********************************************
+***************************************************
 v''' + version_nb + '''
 author: Jean Helie (jean.helie@bioch.ox.ac.uk)
-git: https://github.com/jhelie/xvg_average_op
-**********************************************
+git: https://github.com/jhelie/xvg_average_residues
+***************************************************
 
 [ DESCRIPTION ]
  
