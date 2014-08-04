@@ -42,7 +42,6 @@ Option	      Default  	Description
 -----------------------------------------------------
 -f			: xvg file(s)
 -o	residues_avg	: name of outptut file
---nb-ff		: nb of flip-flops to output as weight in xvg
 --comments	@,#	: lines starting with these characters will be considered as comment
 
 Other options
@@ -55,7 +54,6 @@ Other options
 #options
 parser.add_argument('-f', nargs='+', dest='xvgfilenames', help=argparse.SUPPRESS, required=True)
 parser.add_argument('-o', nargs=1, dest='output_file', default=["residues_avg"], help=argparse.SUPPRESS)
-parser.add_argument('--nb-ff', nargs=1, dest='nb_ff', default=[1], help=argparse.SUPPRESS)
 parser.add_argument('--comments', nargs=1, dest='comments', default=['@,#'], help=argparse.SUPPRESS)
 
 #other options
@@ -68,7 +66,6 @@ parser.add_argument('-h','--help', action='help', help=argparse.SUPPRESS)
 
 args = parser.parse_args()
 args.output_file = args.output_file[0]
-args.nb_ff = args.nb_ff[0]
 args.comments = args.comments[0].split(',')
 
 #=========================================================================================
@@ -248,7 +245,7 @@ def write_xvg():														#DONE
 		tmp_files += "," + str(f)
 	output_xvg.write("# - files: " + str(tmp_files[1:]) + "\n")
 	if np.sum(weights) > len(args.xvgfilenames):
-		output_xvg.write("# -> weight = " + str(args.nb_ff) + "\n")
+		output_xvg.write("# -> weight = " + str(np.sum(weights)) + "\n")
 	
 	#xvg metadata
 	output_xvg.write("@ title \"Average xvg\"\n")
